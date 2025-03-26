@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <div class="sprite-stats">
+        <img class="pokemon_sprite" src="{{pokemon['sprites']['front_default']}}"></img>
+    </div>
+    <div class="pokemon-info">
+        <h2>{{pokemon["name"].capitalize()}}</h2>
+        <p id="dex-number" class="text-muted">
+            National № <strong>{{(pokemon["id"]|string).zfill(4)}}</strong>
+        </p>
+        {% for type in pokemon["types"] %}
+        <span class="pokemon-type {{type['type']['name']}}">
+            {{type["type"]["name"].upper()}}
+        </span>
+        {% endfor %}
+        <ul class="text-muted pokemon-general-info">
+            <li>Species<strong></strong></li>
+            <li>Height <strong>{{pokemon["height"]/10}} m</strong></li>
+            <li>Weight<strong>{{pokemon["weight"]/10}} kg</strong></li>
+            <li>Catch rate<strong></strong></li>
+            <li>Gender<strong></strong></li>
+            <li>Egg Groups<strong></strong></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

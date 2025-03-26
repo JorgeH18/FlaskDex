@@ -1,0 +1,326 @@
+body {
+    font-family: "Space Grotesk", monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+hr {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border-color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    position: relative;
+    color: #e0e0e0;
+}
+
+.nav {
+    padding: 15px;
+    background-color: rgba(30, 30, 30, 0.70);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    width: fit-content;
+}
+
+.text-muted {
+    color: #a1a1aa;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-dark input[type="text"] {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 1rem;
+    width: 300px;
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.form-dark input[type="text"]::placeholder{
+    color: #888;
+    font-family: "Space Grotesk", monospace;
+}
+
+.pokemon_sprite{
+    height: 400px;
+    width: auto;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    background-color: rgba(30, 30, 30, 0.70);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.sprite-stats, .pokemon-info{
+    border: 1px solid var(--red);
+}
+
+.pokemon-info h2, #dex-number{
+    text-align: center;
+}
+
+.pokemon-general-info{
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+.pokemon-general-info li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 0;
+  }
+
+/* Types */
+.pokemon-type{
+    font-size: 15px;
+  
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    width: 6em;
+    text-align: center;
+    display: inline-block;
+    border: .1em solid transparent;
+    padding: .1em .2em .2em;
+    margin: .1em .015em;
+    border-radius: .4em;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.normal {
+    background-color: var(--normal);
+    border-top-color: #C3C78E;  /* Lighten */
+    border-bottom-color: #8B8A62;  /* Darken */
+  }
+  
+  .fire {
+    background-color: var(--fire);
+    border-top-color: #F5A166;
+    border-bottom-color: #BB4E1E;
+  }
+  
+  .water {
+    background-color: var(--water);
+    border-top-color: #83A9F4;
+    border-bottom-color: #4A70C3;
+  }
+  
+  .electric {
+    background-color: var(--electric);
+    border-top-color: #F9DD70;
+    border-bottom-color: #C6A521;
+  }
+  
+  .grass {
+    background-color: var(--grass);
+    border-top-color: #9AD97C;
+    border-bottom-color: #5E9C3D;
+  }
+  
+  .ice {
+    background-color: var(--ice);
+    border-top-color: #B7E6E3;
+    border-bottom-color: #76B2B0;
+  }
+  
+  .fighting {
+    background-color: var(--fighting);
+    border-top-color: #D95C58;
+    border-bottom-color: #9B221E;
+  }
+  
+  .poison {
+    background-color: var(--poison);
+    border-top-color: #B966B9;
+    border-bottom-color: #812D7D;
+  }
+  
+  .ground {
+    background-color: var(--ground);
+    border-top-color: #EBD991;
+    border-bottom-color: #B2924F;
+  }
+  
+  .flying {
+    background-color: var(--flying);
+    border-top-color: #C2B3F7;
+    border-bottom-color: #876FC4;
+  }
+  
+  .psychic {
+    background-color: var(--psychic);
+    border-top-color: #FA7DA2;
+    border-bottom-color: #C4446B;
+  }
+  
+  .bug {
+    background-color: var(--bug);
+    border-top-color: #C0CD53;
+    border-bottom-color: #879013;
+  }
+  
+  .rock {
+    background-color: var(--rock);
+    border-top-color: #CFC26C;
+    border-bottom-color: #8D7E2B;
+  }
+  
+  .ghost {
+    background-color: var(--ghost);
+    border-top-color: #8C70AD;
+    border-bottom-color: #57436F;
+  }
+  
+  .dragon {
+    background-color: var(--dragon);
+    border-top-color: #8E67FD;
+    border-bottom-color: #5227B8;
+  }
+  
+  .dark {
+    background-color: var(--dark);
+    border-top-color: #8B7264;
+    border-bottom-color: #594134;
+  }
+  
+  .steel {
+    background-color: var(--steel);
+    border-top-color: #D1D1DD;
+    border-bottom-color: #8E8E9C;
+  }
+  
+  .fairy {
+    background-color: var(--fairy);
+    border-top-color: #E9AFC3;
+    border-bottom-color: #A9597B;
+  }
+  
+
+/* Fancy button */
+:root {
+  --red: #FF6565;
+  --blue: #4D8AFF;
+  --yellow: #FFEE55;
+  --ruby: #c74464;
+  --sapphire: #47d3e3;
+  --emerald: #5BFF89;
+  --diamond: #6B5FFF;
+  --pearl: #FF64F9;
+
+  /* Types */
+  --normal: #A8A77A;
+  --fire: #EE8130;
+  --water: #6390F0;
+  --electric: #F7D02C;
+  --grass: #7AC74C;
+  --ice: #96D9D6;
+  --fighting: #C22E28;
+  --poison: #A33EA1;
+  --ground: #E2BF65;
+  --flying: #A98FF3;
+  --psychic: #F95587;
+  --bug: #A6B91A;
+  --rock: #B6A136;
+  --ghost: #735797;
+  --dragon: #6F35FC;
+  --dark: #705746;
+  --steel: #B7B7CE;
+  --fairy: #D685AD;
+}
+
+button {
+    border: 2px solid transparent;
+    position: relative;
+    color: #F3F3F3;
+    font-family: 'Space Grotesk';
+    font-size:  1rem;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    background:linear-gradient(#121213, #121213), linear-gradient(#121213 0%, rgba(18, 18, 19, 0.5) 0%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, 
+    var(--red),
+    var(--blue),
+    var(--yellow),
+    var(--ruby),
+    var(--sapphire),
+    var(--emerald),
+    var(--diamond),
+    var(--pearl)
+  );
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 3s infinite linear;
+}
+
+button::before {
+    content: '';
+    background: linear-gradient(90deg, 
+    var(--red),
+    var(--blue),
+    var(--yellow),
+    var(--ruby),
+    var(--sapphire),
+    var(--emerald),
+    var(--diamond),
+    var(--pearl)
+  );
+    height: 30%;
+    width: 80%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 3s infinite linear;
+    filter: blur(20px);
+}
+
+button:hover, button:hover::before {
+    animation: animate 1s infinite linear;
+}
+
+@keyframes animate {
+    0% {background-position: 0}
+    100% {background-position: 200%}
+}
