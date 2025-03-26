@@ -4,18 +4,35 @@
 <div class="main-content">
     <div class="sprite-stats">
         <img class="pokemon_sprite" src="{{pokemon['sprites']['front_default']}}"></img>
+        <i>{{flavor_text}}</i>
     </div>
     <div class="pokemon-info">
         <h2>{{pokemon["name"].capitalize()}}</h2>
         <p id="dex-number" class="text-muted">
             National № <strong>{{(pokemon["id"]|string).zfill(4)}}</strong>
         </p>
-        {% for type in pokemon["types"] %}
-        <span class="pokemon-type {{type['type']['name']}}">
-            {{type["type"]["name"].upper()}}
-        </span>
-        {% endfor %}
+        <div class="pokemon-types">
+            {% for type in pokemon["types"] %}
+            <span class="pokemon-type {{type['type']['name']}}">
+                {{type["type"]["name"].upper()}}
+            </span>
+            {% endfor %}
+        </div>
         <ul class="text-muted pokemon-general-info">
+            <p>Abilities</p>
+            <p>
+                {% for ability in pokemon["abilities"] %}
+                {% if ability["is_hidden"] %}
+                <strong>{{ability["ability"]["name"].replace('-', ' ').capitalize()}}</strong> (hidden)
+                {% else %}
+                <strong>{{ability["ability"]["name"].replace('-', ' ').capitalize()}}</strong>
+                {% endif %}
+                {% if not loop.last %}
+                ,
+                {% endif %}
+                {% endfor %}
+            </p>
+
             <li>Species<strong></strong></li>
             <li>Height <strong>{{pokemon["height"]/10}} m</strong></li>
             <li>Weight<strong>{{pokemon["weight"]/10}} kg</strong></li>
