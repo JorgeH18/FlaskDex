@@ -7,7 +7,7 @@
         <i id="dex_description">{{flavor_text}}</i>
     </div>
     <div class="pokemon-info">
-        <h2>{{pokemon["name"].capitalize()}}</h2>
+        <h2>{{pokemon["name"].replace('-', ' ').capitalize()}}</h2>
         <p id="dex-number" class="text-muted">
             National № <strong>{{(pokemon["id"]|string).zfill(4)}}</strong>
         </p>
@@ -40,16 +40,26 @@
             <li>Weight<strong>{{pokemon["weight"]/10}} kg</strong></li>
             <li>Catch rate<strong>{{pokemon_species["capture_rate"]}}</strong></li>
             <li>Gender
+                {% if pokemon_species["gender_rate"]==-1 %}
+                <strong>
+                    <span class="gender-less">Genderless</span>
+                </strong>
+                {% else %}
                 <strong>
                     <span class="gender-male">{{100-(pokemon_species["gender_rate"])/8*100}}% male</span>
                     ,
                     <span class="gender-female">{{(pokemon_species["gender_rate"])/8*100}}% female</span>
                 </strong>
+                {% endif %}
             </li>
             <li>Egg Groups
                 <strong>
                     {% for egg_group in pokemon_species["egg_groups"] %}
+                    {% if egg_group["name"]=="no-eggs" %}
+                    Undiscovered
+                    {% else %}
                     {{egg_group["name"].capitalize()}}
+                    {% endif %}
                     {% if not loop.last %}
                     ,
                     {% endif %}

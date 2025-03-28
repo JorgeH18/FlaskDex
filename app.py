@@ -6,8 +6,13 @@ app = Flask(__name__)
 requests_cache.install_cache('app_cache', backend='sqlite', expire_after=360)
 
 def get_pokemon_data(pokemon_reference):
-    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_reference}"
+    # As names can be different (for example; giratina-altered) we get the reference from the species
+    url = f"https://pokeapi.co/api/v2/pokemon-species/{pokemon_reference}"
     response = requests.get(url)
+    pokemon_data_url = response.json()["varieties"][0]["pokemon"]["url"]
+
+    # With the pokemon reference obtained we can now get the data
+    response = requests.get(pokemon_data_url)
     pokemon_data = response.json()
     return pokemon_data
 
