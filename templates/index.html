@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="main-content">
-    <div class="sprite-stats">
-        <img class="pokemon_sprite" src="{{pokemon['sprites']['front_default']}}"></img>
-        <i>{{flavor_text}}</i>
+    <div class="sprite-stats" id="sprite-stats-card">
+        <img id="sprite-stats-layer" class="pokemon_sprite" src="{{pokemon['sprites']['front_default']}}"></img>
+        <i id="dex_description">{{flavor_text}}</i>
     </div>
     <div class="pokemon-info">
         <h2>{{pokemon["name"].capitalize()}}</h2>
@@ -20,10 +20,12 @@
         </div>
         <ul class="text-muted pokemon-general-info">
             <p>Abilities</p>
-            <p>
+            <p id="abilities-list">
                 {% for ability in pokemon["abilities"] %}
                 {% if ability["is_hidden"] %}
-                <strong>{{ability["ability"]["name"].replace('-', ' ').capitalize()}}</strong> (hidden)
+                <strong>
+                    {{ability["ability"]["name"].replace('-', ' ').capitalize()}}
+                </strong> (hidden)
                 {% else %}
                 <strong>{{ability["ability"]["name"].replace('-', ' ').capitalize()}}</strong>
                 {% endif %}
@@ -33,12 +35,27 @@
                 {% endfor %}
             </p>
 
-            <li>Species<strong></strong></li>
+            <li>Species<strong>{{genus}}</strong></li>
             <li>Height <strong>{{pokemon["height"]/10}} m</strong></li>
             <li>Weight<strong>{{pokemon["weight"]/10}} kg</strong></li>
-            <li>Catch rate<strong></strong></li>
-            <li>Gender<strong></strong></li>
-            <li>Egg Groups<strong></strong></li>
+            <li>Catch rate<strong>{{pokemon_species["capture_rate"]}}</strong></li>
+            <li>Gender
+                <strong>
+                    <span class="gender-male">{{100-(pokemon_species["gender_rate"])/8*100}}% male</span>
+                    ,
+                    <span class="gender-female">{{(pokemon_species["gender_rate"])/8*100}}% female</span>
+                </strong>
+            </li>
+            <li>Egg Groups
+                <strong>
+                    {% for egg_group in pokemon_species["egg_groups"] %}
+                    {{egg_group["name"].capitalize()}}
+                    {% if not loop.last %}
+                    ,
+                    {% endif %}
+                    {% endfor %}
+                </strong>
+            </li>
         </ul>
     </div>
 </div>

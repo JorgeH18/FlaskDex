@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeApi - Flask Learning</title>
+    <title>OpenDex</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 
 <body>
     <div>
-        <h1>FlaskDex</h1>
+        <h1><a href="{{ url_for('index')}}">OpenDex</a></h1>
     </div>
     <div class="nav">
         <div>
@@ -25,7 +25,7 @@
         </div>
     </div>
     {% block content %}{% endblock %}
-
+    <script src="{{url_for('static', filename='/js/index.js')}}"></script>
 </body>
 
 </html>
